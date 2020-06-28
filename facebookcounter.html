@@ -10,13 +10,12 @@
 </head>
 <body>
 	<table id="app">
-		<tr v-for="date in dates" :key="date">
+		<tr v-for="date in dates" :key="date.toString()">
 			<td>
 				{{date}}
 			</td>
 			<td>
-				<iframe :src="'https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSeanBuranahiran&tabs&width=340&height=90&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=169089976485856&state='" width="340" height="90" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media">
-        </iframe>
+<iframe class="fb" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSeanBuranahiran&tabs&width=340&height=214&small_header=false&adapt_container_width=false&hide_cover=true&show_facepile=true&appId=172621486130638" width="340" height="214" style="border:none;overflow:hidden;height:240px" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
 			</td>
 		</tr>
 	</table>
@@ -29,7 +28,7 @@
 		new Vue({
 			el: '#app',
 			data: {
-				dates: []
+				dates: [new Date()]
 			},
 			created: function() {
 				var self = this;
@@ -42,7 +41,7 @@
 						while(self.dates.length > 3)
 							self.dates.pop();
 					},500);
-				},3000);
+				},5000);
 			}
 		});
 	</script>
