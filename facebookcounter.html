@@ -1,13 +1,45 @@
+<!doctype html>
 <html>
 
 <head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+	<link rel="stylesheet" href="https://unpkg.com/vue-material/dist/vue-material.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/vue-material/dist/theme/default.css">
 </head>
 <body>
-	<div id="fb-root"></div>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&autoLogAppEvents=1&version=v7.0&appId=169089976485856" nonce="d3ZkHvWO"></script>
-	<div class="fb-page" data-href="https://www.facebook.com/SeanBuranahiran" data-tabs="" data-width="" data-height="90" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true">
-		<blockquote cite="https://www.facebook.com/SeanBuranahiran" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/SeanBuranahiran">Sean Buranahiran - ฌอน บูรณะหิรัญ</a></blockquote>
-	</div>
+	<table id="app">
+		<tr v-for="date in dates">
+			<td>
+				{{date}}
+			</td>
+			<td>
+				<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSeanBuranahiran&tabs&width=340&height=90&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=169089976485856" width="340" height="90" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+			</td>
+		</tr>
+	</table>
+
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/vue-material"></script>
+	<script>
+		Vue.use(VueMaterial.default)
+
+			new Vue({
+				el: '#app',
+				created: function() {
+					var self = this;
+					setInterval(function() {
+						if(!self.dates)
+							self.dates = [];
+						self.dates = self.dates.unshift(new Date());
+						while(self.dates.length > 10)
+							self.dates.pop();
+					},5000);
+				}
+			});
+		
+	</script>
 </body>
 
 </html>
