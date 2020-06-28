@@ -11,15 +11,15 @@
 	<script>
 		window.fbAsyncInit = function() {
 			FB.init({
-				appId: '{your-app-id}',
+				appId: '169089976485856',
 				cookie: true,
 				xfbml: true,
-				version: '{api-version}'
+				version: '7.0'
 			});
 
 			FB.AppEvents.logPageView();
 
-			FB.api("",function(response) {
+			FB.api('/seanburanahiran?fields=fan_count', function(response) {
 				console.log(response);
 			});
 		};
