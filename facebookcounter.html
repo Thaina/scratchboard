@@ -5,7 +5,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/vuetify@1/dist/vuetify.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue-countup@0.1.0/dist/vue-count-up.min.js"></script>
 
-	<script async defer src="https://connect.facebook.net/es_LA/sdk.js"></script>
+	<script async defer src="https://connect.facebook.net/sdk.js"></script>
 
 
 	<script>
@@ -14,11 +14,12 @@
 				appId: '169089976485856',
 				cookie: true,
 				xfbml: true,
-				version: '7.0'
+				version: 'v7.0'
 			});
 
 			FB.AppEvents.logPageView();
 			FB.getLoginStatus(function(response) {
+				console.log(response);
 				FB.api('/seanburanahiran?fields=fan_count', function(response) {
 					console.log(response);
 				});
