@@ -247,7 +247,7 @@
 			});
 
 			FB.AppEvents.logPageView();
-			FB.getLoginStatus(function(response) {
+			FB.login(function(response) {
 				console.log(response);
 				FB.api('/seanburanahiran?fields=fan_count',function(response) {
 					console.log(response);
@@ -274,15 +274,15 @@
 	</div>
   
 	<script>
-    Vue.use(window.VueCountUp);
-    var oVue = new Vue({
-      el: '#App',
-      data: {
-        iStartValue: 0,
-        iEndValue: 80000,
-        duration: 1
-      }
-    });
+		Vue.use(window.VueCountUp);
+		var oVue = new Vue({
+		el: '#App',
+		data: {
+			iStartValue: 0,
+			iEndValue: 80000,
+			duration: 1
+		}
+		});
 	</script>
 </body>
 
