@@ -7,7 +7,26 @@
 
 	<script async defer src="https://connect.facebook.net/sdk.js"></script>
 
-
+	<script>
+        Vue.use(window.VueCountUp);
+		var oVue = new Vue({
+			el: '#App',
+			data: {
+				iStartValue: 0,
+				iEndValue: 80000,
+				duration: 1
+			}
+		});
+	</script>
+</head>
+<style type="text/css">
+    .myCounter{
+        font-size: 12em;
+        margin: 0;
+        color: #4d63bc;
+    }
+</style>
+<body>
 	<script>
 		window.fbAsyncInit = function() {
 			FB.init({
@@ -34,27 +53,6 @@
 			fjs.parentNode.insertBefore(js,fjs);
 		}(document,'script','facebook-jssdk'));
 	</script>
-
-	<script>
-        Vue.use(window.VueCountUp);
-		var oVue = new Vue({
-			el: '#App',
-			data: {
-				iStartValue: 0,
-				iEndValue: 80000,
-				duration: 1
-			}
-		});
-	</script>
-</head>
-<style type="text/css">
-    .myCounter{
-        font-size: 12em;
-        margin: 0;
-        color: #4d63bc;
-    }
-</style>
-<body>
 	<div id="App">
 		TestTest
 		<vuecountup class="myCounter" :start="iStartValue" :end="iStartValue" :duration="duration" :options="{useEasing : true,
