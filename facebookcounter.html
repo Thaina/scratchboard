@@ -8,15 +8,17 @@
 	<script async defer src="https://connect.facebook.net/sdk.js"></script>
 
 	<script>
-        Vue.use(window.VueCountUp);
-		var oVue = new Vue({
-			el: '#App',
-			data: {
-				iStartValue: 0,
-				iEndValue: 80000,
-				duration: 1
-			}
-		});
+		window.onload = () => {
+			Vue.use(window.VueCountUp);
+			var oVue = new Vue({
+				el: '#App',
+				data: {
+					iStartValue: 0,
+					iEndValue: 80000,
+					duration: 1
+				}
+			});
+		}
 	</script>
 </head>
 <style type="text/css">
