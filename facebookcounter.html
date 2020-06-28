@@ -32,7 +32,7 @@
 					setInterval(function() {
 						if(!self.dates)
 							self.dates = [];
-						self.dates = self.dates.unshift(new Date());
+						self.dates.unshift(new Date());
 						while(self.dates.length > 10)
 							self.dates.pop();
 					},5000);
