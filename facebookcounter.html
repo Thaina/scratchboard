@@ -18,9 +18,10 @@
 			});
 
 			FB.AppEvents.logPageView();
-
-			FB.api('/seanburanahiran?fields=fan_count', function(response) {
-				console.log(response);
+			FB.getLoginStatus(function(response) {
+				FB.api('/seanburanahiran?fields=fan_count', function(response) {
+					console.log(response);
+				});
 			});
 		};
 
@@ -35,6 +36,14 @@
 
 	<script>
         Vue.use(window.VueCountUp);
+		var oVue = new Vue({
+			el: '#App',
+			data: {
+				iStartValue: 0,
+				iEndValue: 80000,
+				duration: 1
+			}
+		});
 	</script>
 </head>
 <style type="text/css">
@@ -46,7 +55,8 @@
 </style>
 <body>
 	<div id="App">
-		<vuecountup class="myCounter" :end="2500" :duration="1" :options="{useEasing : true,
+		TestTest
+		<vuecountup class="myCounter" :start="iStartValue" :end="iStartValue" :duration="duration" :options="{useEasing : true,
 		useGrouping : true,
 		separator : ',',
 		decimal : '.',
