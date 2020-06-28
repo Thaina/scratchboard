@@ -10,12 +10,13 @@
 </head>
 <body>
 	<table id="app">
-		<tr v-for="date in dates">
+		<tr v-for="date in dates" :key="date">
 			<td>
 				{{date}}
 			</td>
 			<td>
-				<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSeanBuranahiran&tabs&width=340&height=90&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=169089976485856" width="340" height="90" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+				<iframe :src="'https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSeanBuranahiran&tabs&width=340&height=90&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=169089976485856&state='" width="340" height="90" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media">
+        </iframe>
 			</td>
 		</tr>
 	</table>
@@ -25,23 +26,25 @@
 	<script>
 		Vue.use(VueMaterial.default)
 
-			new Vue({
-				el: '#app',
-				data: {
-					dates: []
-				},
-				created: function() {
-					var self = this;
-					setInterval(function() {
-						if(!self.dates)
-							self.dates = [];
-						self.dates.unshift(new Date());
-						while(self.dates.length > 10)
+		new Vue({
+			el: '#app',
+			data: {
+				dates: []
+			},
+			created: function() {
+				var self = this;
+				setInterval(function() {
+					if(!self.dates)
+						self.dates = [];
+					self.dates.unshift(new Date());
+
+					setTimeout(() => {
+						while(self.dates.length > 3)
 							self.dates.pop();
-					},5000);
-				}
-			});
-		
+					},500);
+				},3000);
+			}
+		});
 	</script>
 </body>
 
